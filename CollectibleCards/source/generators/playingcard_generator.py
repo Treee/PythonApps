@@ -1,3 +1,27 @@
+import shutil
+import argparse
+from PIL import Image, ImageDraw, ImageFont
+import os
+
+# Utility: copy all card_back_*.png files from art/playingcards to OUT_DIR with _co.png suffix
+def copy_card_backs_to_output(art_dir, out_dir, verbose=False):
+    for fname in os.listdir(art_dir):
+        if fname.startswith('card_back_') and fname.lower().endswith('.png'):
+            src = os.path.join(art_dir, fname)
+            base = fname[:-4] if fname.lower().endswith('.png') else fname
+            dst = os.path.join(out_dir, f"{base}_co.png")
+            shutil.copyfile(src, dst)
+            if verbose:
+                print(f"[COPY] {src} -> {dst}")
+# Utility: clear all files in a folder
+def clear_output_folder(folder):
+    """Delete all files in the given folder (not subfolders)."""
+    if not os.path.exists(folder):
+        return
+    for fname in os.listdir(folder):
+        fpath = os.path.join(folder, fname)
+        if os.path.isfile(fpath):
+            os.remove(fpath)
 # ---------------- CARD META DATA ----------------
 # Each entry: {symbol, name, color, art_slug (optional)}
 CARD_META = [
@@ -20,10 +44,6 @@ def get_card_meta(symbol, color=None, name=None):
                 continue
             return meta
     return None
-
-import argparse
-from PIL import Image, ImageDraw, ImageFont
-import os
 
 W, H = 1024, 1024               # full canvas (power of two)
 CARD_W, CARD_H = 730, 1024      # 5:7 ratio card anchored bottom-left
@@ -316,7 +336,10 @@ def main():
     except Exception:
         raise ValueError("--back-color must be in the form R,G,B with values 0-255")
 
+
+    # Clear output folder before generating new cards
     os.makedirs(OUT_DIR, exist_ok=True)
+    clear_output_folder(OUT_DIR)
 
     ranks = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
     # Generate all standard cards from meta
@@ -326,11 +349,15 @@ def main():
         color = meta["color"]
         if name.startswith("joker"):
             # Only generate jokers for rank JOKER
-            make_card("JOKER", symbol, os.path.join(OUT_DIR, f"{name}.png"), color=color)
+            make_card("JOKER", symbol, os.path.join(OUT_DIR, f"{name}_co.png"), color=color)
         else:
             for r in ranks:
-                fname = f"{name}_{r}.png"
+                fname = f"{name}_{r}_co.png"
                 make_card(r, symbol, os.path.join(OUT_DIR, fname), color=color)
+
+    # Copy all card_back_*.png files from art/playingcards to OUT_DIR with _co.png suffix
+    art_dir = os.path.join(os.path.dirname(__file__), '..', 'art', 'playingcards')
+    copy_card_backs_to_output(art_dir, OUT_DIR, verbose=VERBOSE)
 
 if __name__ == "__main__":
     main()
