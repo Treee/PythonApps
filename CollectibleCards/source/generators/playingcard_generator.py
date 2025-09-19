@@ -9,7 +9,7 @@ def copy_card_backs_to_output(art_dir, out_dir, verbose=False):
         if fname.startswith('card_back_') and fname.lower().endswith('.png'):
             src = os.path.join(art_dir, fname)
             base = fname[:-4] if fname.lower().endswith('.png') else fname
-            dst = os.path.join(out_dir, f"{base}_co.png")
+            dst = os.path.join(out_dir, f"{base}_co.png".lower())
             shutil.copyfile(src, dst)
             if verbose:
                 print(f"[COPY] {src} -> {dst}")
@@ -349,10 +349,10 @@ def main():
         color = meta["color"]
         if name.startswith("joker"):
             # Only generate jokers for rank JOKER
-            make_card("JOKER", symbol, os.path.join(OUT_DIR, f"{name}_co.png"), color=color)
+            make_card("JOKER", symbol, os.path.join(OUT_DIR, f"{name}_co.png".lower()), color=color)
         else:
             for r in ranks:
-                fname = f"{name}_{r}_co.png"
+                fname = f"{name}_{r}_co.png".lower()
                 make_card(r, symbol, os.path.join(OUT_DIR, fname), color=color)
 
     # Copy all card_back_*.png files from art/playingcards to OUT_DIR with _co.png suffix
