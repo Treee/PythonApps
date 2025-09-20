@@ -1,0 +1,1 @@
+python source\generators\tarotcard_generator.py
