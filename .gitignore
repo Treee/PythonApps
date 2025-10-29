@@ -4,6 +4,7 @@ output/
 
 # Large Source Files
 SatMapModifier/source/images/
+TradingAnalysis/source/data/*
 
 # File Types
 *.kra
