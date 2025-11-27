@@ -1,5 +1,5 @@
 Row Number,Card ID,Name,Faction,Rarity,Type,Subtype,Cost,Power,Toughness,Abilities,Flavor Text,Set/Edition
-1,SRP-PL-001-C-U,The Illusive Man,Players,Common,Creature,Unit,2E,3,2,"[Elude Capture] When this card is drawn, immediately discard and draw another.",Rumored to be a man more than myth but none can confirm.,SRP: Players
+1,SRP-PL-001-C-U,Illusive,Players,Rare,Creature,Unit,5S 5F,12,20,"[Art of the Deal] All creatures get +1 to POW/DEF each turn this card is in play.",Rumored to be a man more than myth but none can confirm.,SRP: Players
 2,SRP-PL-001-C-DEV,Tree,Players,Legendary,Creature,Developer,3E 3M 3F 3S,100,10,"[Corrode] Pick a random card from your opponents hand and discard it immediately.","After learning how to make kuru airborne, he didn't stop until everything was corroded.",SRP: Players
 3,SRP-PL-002-C-DEV,TheAdmiral,Players,Legendary,Creature,Developer,3E 3M 3F 3S,100,10,"[Override] Once per turn you may reverse an opponents action. For example, if your opponent taps a card you may untap. If they attack you may nullify the dmg.","I am right and you are wrong, even when I'm wrong.",SRP: Players
 4,SRP-PL-003-C-DEV,Mar,Players,Legendary,Creature,Developer,5S,50,50,"[Override] When this card enters play, tap 2 target cards.",Behind any great man is an even greater woman.,SRP: Players
