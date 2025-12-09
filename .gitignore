@@ -6,6 +6,9 @@ output/
 SatMapModifier/source/images/
 TradingAnalysis/source/data/*
 
+# Bohemia Interactive Property
+*.p3d
+
 # File Types
 *.kra
 *.kra~

@@ -1,0 +1,12 @@
+mappings:
+    - source: "Z:/DayZ/PythonApps/RoadPartsHelper/source/roadparts/Chernarus"
+      pattern: "*.p3d"
+      destination: "P:/DZ/structures/roads/Parts"
+
+    - source: "Z:/DayZ/PythonApps/RoadPartsHelper/source/roadparts/Livonia"
+      pattern: "*.p3d"
+      destination: "P:/DZ/structures_bliss/roads/Parts"
+
+    - source: "Z:/DayZ/PythonApps/RoadPartsHelper/source/roadparts/Sakhal"
+      pattern: "*.p3d"
+      destination: "P:/DZ/structures_sakhal/roads/Parts"
