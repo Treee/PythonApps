@@ -1,0 +1,148 @@
+:root {
+    --bg: #0f172a;
+    --panel: #111827;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #22c55e;
+    --danger: #ef4444;
+    --border: #1f2937;
+}
+
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    background: linear-gradient(180deg, #0b1023 0%, var(--bg) 100%);
+    color: var(--text);
+}
+
+header {
+    padding: 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--panel);
+}
+header h1 {
+    margin: 0 0 8px;
+    font-size: 1.6rem;
+}
+header p {
+    margin: 0;
+    color: var(--muted);
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+}
+.controls,
+.summary,
+.results {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.field.checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+.field label {
+    font-weight: 600;
+    color: var(--muted);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+    background: #0b1324;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 12px;
+    border-radius: 8px;
+}
+
+.actions {
+    display: flex;
+    align-items: end;
+}
+button {
+    background: var(--accent);
+    color: #03170c;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+button:disabled {
+    background: #164f2e;
+    cursor: not-allowed;
+}
+
+.status {
+    grid-column: 1 / -1;
+    color: var(--muted);
+    min-height: 1em;
+}
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+.summary-item {
+    background: #0b1324;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px;
+}
+.summary-item strong {
+    color: var(--muted);
+    margin-right: 6px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+thead th {
+    text-align: left;
+    color: var(--muted);
+    font-weight: 600;
+    padding: 10px;
+    border-bottom: 1px solid var(--border);
+}
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid var(--border);
+}
+tbody tr:hover {
+    background: #0c1322;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--muted);
+}

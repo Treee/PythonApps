@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Recurring Investment Strategy</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Recurring Investment Strategy</h1>
+            <p>Simple tool to simulate recurring purchases using Yahoo Finance data.</p>
+        </header>
+
+        <main>
+            <section class="controls">
+                <div class="field">
+                    <label for="symbol">Stock Symbol</label>
+                    <input id="symbol" type="text" placeholder="e.g., AAPL" />
+                </div>
+                <div class="field">
+                    <label for="start">Start Date</label>
+                    <input id="start" type="date" />
+                </div>
+                <div class="field">
+                    <label for="end">End Date</label>
+                    <input id="end" type="date" />
+                </div>
+                <div class="field">
+                    <label for="interval">Interval</label>
+                    <select id="interval">
+                        <option value="monthly">Monthly</option>
+                        <option value="biweekly">Biweekly</option>
+                        <option value="weekly">Weekly</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="contribution">Contribution per Interval (USD)</label>
+                    <input id="contribution" type="number" min="0" step="0.01" placeholder="e.g., 100" />
+                </div>
+                <div class="field checkbox">
+                    <input id="spendOverage" type="checkbox" />
+                    <label for="spendOverage">Spend surplus when >= current price</label>
+                </div>
+                <div class="actions">
+                    <button id="computeBtn">Compute</button>
+                </div>
+                <div id="status" class="status" aria-live="polite"></div>
+            </section>
+
+            <section class="summary">
+                <div class="summary-item"><strong>Total Shares:</strong> <span id="totalShares">0</span></div>
+                <div class="summary-item"><strong>Total Spent:</strong> $<span id="totalSpent">0.00</span></div>
+                <div class="summary-item"><strong>Dollar Cost Average:</strong> $<span id="dca">0.00</span></div>
+                <div class="summary-item"><strong>Position Value (today):</strong> $<span id="positionValue">0.00</span></div>
+                <div class="summary-item"><strong>Profits:</strong> $<span id="profits">0.00</span></div>
+            </section>
+
+            <section class="results">
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Interval Date</th>
+                            <th>Price</th>
+                            <th>Shares Purchased</th>
+                            <th>Remaining Balance</th>
+                            <th>Total Remaining Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer>
+            <small>Data from Yahoo Finance (unofficial chart API)</small>
+        </footer>
+
+        <script src="app.js"></script>
+    </body>
+</html>
